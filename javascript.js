@@ -1,6 +1,7 @@
-// console.log("hello.")
 let playerScore = 0;
 let computerScore = 0;
+let computerSelection = computerPlay();
+let playerSelection;
 function winner(){
     if (playerScore > computerScore){
         return "player wins"}
@@ -21,20 +22,10 @@ function computerPlay(){
                 return 'scissors'
         }
 }
-// console.log(computerPlay());
 
 function playRound(){
-    let playerSelectionInput= prompt("Please enter rock, paper, or scissors.");
-    let playerSelection = playerSelectionInput.toLowerCase();
-    let computerSelection = computerPlay();
-    
-    // alert(playerSelection)
-    // return computerPlay();
-
-    if (playerSelection == computerSelection){
-        return "that game was a tie";
-    }
-    else if (
+    computerSelection = computerPlay().toLocaleLowerCase();
+    if (
         (computerSelection == 'rock' && playerSelection == 'scissors') ||
         (computerSelection == 'paper' && playerSelection == 'rock') ||
         (computerSelection == 'scissors' && playerSelection == 'paper')
@@ -52,13 +43,60 @@ function playRound(){
     }
 }
 
-function playGame(){
-    for (let i =0; i < 5; i++){
-        playRound()
-        let round = i + 1;
-        console.log("Round:" + round);
-        console.log("players score: " + playerScore);
-        console.log("computer score: " + computerScore);
-    }
-    return winner()
-}
+let buttons = document.querySelectorAll(".button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const img = button.querySelector("img");
+        playerSelection = img.alt.toLowerCase();
+        
+        playRound();
+        
+        let pScore = document.querySelector('.playerScore');
+        pScore.textContent = playerScore;
+        pScore = playerScore;
+        let cScore = document.querySelector('.computerScore');
+        cScore.textContent = computerScore;
+        cScore = computerScore
+        
+        let roundResults = document.querySelector('.roundResults');
+        let nextRound = document.querySelector('.nextRound');
+
+        if (playerScore <= 4 && computerScore <= 4){
+            if (playerSelection == computerSelection){
+                roundResults.textContent = "Well, that was a tie..."
+                nextRound.textContent = ""
+
+            }
+            else if (
+                (computerSelection == 'rock' && playerSelection == 'scissors') ||
+                (computerSelection == 'paper' && playerSelection == 'rock') ||
+                (computerSelection == 'scissors' && playerSelection == 'paper')
+                )
+            {
+                roundResults.textContent = "Computer takes that round!";
+                nextRound.textContent = ""
+
+            }
+            else if (
+                (playerSelection == 'rock' && computerSelection == 'scissors') ||
+                (playerSelection == 'paper' && computerSelection == 'rock') ||
+                (playerSelection == 'scissors' && computerSelection == 'paper') 
+                )
+            {
+                roundResults.textContent = "Looks like you got a point.";
+                nextRound.textContent = ""
+            }
+        } else if (playerScore = 5 && computerScore < 5) {
+            playerScore = 0;
+            computerScore = 0; 
+            roundResults.textContent = "You beat a computer, does that make you feel good?"
+            nextRound.textContent = "Next round will start with your next play."
+        } else if (computerScore = 5 && playerScore < 5) {
+            playerScore = 0;
+            computerScore = 0;
+            roundResults.textContent = "You lost to a computer, how does that make you feel? "
+            nextRound.textContent = "Next round will start with your next play."
+        }        
+    })
+})

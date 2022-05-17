@@ -1,0 +1,75 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(71, 67, 67);
+}
+
+#header{
+    margin: 0px;
+    background-color: rgb(52, 50, 50);
+    width: 100vw;
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+}
+
+.text{
+    font-family: luminari, serif;
+    color: white;
+}
+
+.firstHeader{
+    font-size: 46px;
+    margin-bottom: 1vh;
+}
+
+.secondHeader{
+    font-size: 28px;
+}
+
+
+#plays {
+    display: flex;
+    justify-content: center;
+}
+
+.play:hover{
+box-shadow: 0 0 15px white;
+transform: scale(1.2);
+}
+
+.playPrompt{
+    color: white;
+    font-size: 33px;
+    text-align: center;
+    width: 100vw;
+}
+
+#buttonContainer{
+    display: flex;
+}
+
+.button{
+    margin: 2vh 3vw 5vh 3vw;
+}
+
+.scoreContainer{
+    display: flex;
+    justify-content: center;
+}
+
+#scores{
+    text-align: center;
+    padding: 0vw 3vw 0vw 3vw;
+    font-size: 28px;
+}
+
+.roundResults{
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 2vh;
+}
+
+.nextRound{
+    text-align: center;
+    font-size: 23px;
+}

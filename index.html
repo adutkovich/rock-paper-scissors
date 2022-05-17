@@ -4,10 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="javascript.js"></script>
+    <title>RPS</title>
+    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h3>play in console.</h3>
+    <main>
+        <div id = 'header'>
+            <div class="firstHeader text">Who Shall Win?</div>
+            <div class="secondHeader text">Man or Silly Computer?</div>
+        </div>
+        <p class="playPrompt text">Choose Your Play</p>
+        <div id = 'plays'>
+            <div id="buttonContainer">
+                <div id="rock" class="button text play">
+                    <img src="./images/rock.png" alt="Rock">
+                </div>
+                <div id="paper" class="button text play">
+                    <img src="./images/paper.png" alt="Paper">
+                </div>
+                <div id="scissors" class="button text play">
+                    <img src="./images/scissors.png" alt="Scissors">
+                </div>
+            </div>
+        </div>
+        <div class="scoreContainer">
+            <div id="scores" class="text">
+                <p>You</p>
+                <div class="playerScore">0</div>
+            </div>
+            <div id="scores" class="text">
+                <p>Computer</p>
+                <div class="computerScore">0</div>
+            </div>
+        </div>
+        <div class="roundResults text"></div>
+        <div class="nextRound text"></div>
+    </main>
 </body>
 </html>
